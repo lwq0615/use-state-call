@@ -4,9 +4,6 @@
   "description": "set useState hook callback and obtain the updated state",
   "main": "src/index.js",
   "types": "src/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "files": [
     "src"
   ],
