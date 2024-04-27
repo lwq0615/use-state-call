@@ -17,7 +17,7 @@
 
 - 🌍 适用于任何版本的 React。
 - 🌈 通过 getState 函数获取 state。
-- 📦 使用 TypeScript 开发，提供完整的类型定义文件。
+- 📦 提供完整的 TypeScript 类型定义文件。
 
 ## ⚙️ 如何使用
 
