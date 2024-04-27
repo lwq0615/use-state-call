@@ -34,6 +34,7 @@ import useStateCall from 'use-state-call'
 
 export default function App(props) {
 
+  // 注意：与传统useState不同的是，useStateCall返回数组的第一个参数为一个函数，函数的返回值为state的值
   const [getCount, setCount] = useStateCall(0);
 
   const logCount = () => {
