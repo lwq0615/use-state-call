@@ -45,6 +45,7 @@ export default function App(props) {
 
   const update = () => {
     // count加1
+    // use-state-call为setState函数提供第二个参数设置回调函数，这个函数会在state被更新后执行
     setCount(getCount() + 1, logCount)
   }
 
