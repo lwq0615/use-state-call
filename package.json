@@ -1,6 +1,6 @@
 {
   "name": "use-state-call",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "set useState hook callback and obtain the updated state",
   "main": "src/index.js",
   "types": "src/index.d.ts",

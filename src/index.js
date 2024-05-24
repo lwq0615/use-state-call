@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 
 export default function useStateCall(initialState) {
 
   const [state, setState] = useState(initialState);
-  const [callback] = useState({
+  const callbackRef = useRef({
     state: initialState,
     handle: null,
     setHandle(handle) {
@@ -16,14 +16,24 @@ export default function useStateCall(initialState) {
   });
 
   useEffect(() => {
-    callback.handle?.()
+    callbackRef.current.handle?.()
   }, [state])
 
   const setStateEffect = (state, handle) => {
-    callback.setState(state);
-    callback.setHandle(handle)
+    callbackRef.current.setState(state);
+    callbackRef.current.setHandle(handle)
     setState(state);
   }
 
-  return [() => callback.state, setStateEffect];
+  const getState = useMemo(() => {
+    const fun = () => callbackRef.current.state
+    Object.defineProperty(fun, 'value', {
+      get() {
+        return callbackRef.current.state
+      }
+    })
+    return fun
+  })
+
+  return [getState, setStateEffect];
 }
